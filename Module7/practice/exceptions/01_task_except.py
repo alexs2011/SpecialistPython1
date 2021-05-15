@@ -4,3 +4,21 @@
 # На вход программе подается строка формата nxm (x - латинская буква икс).
 # Пример входных данных: 12x6
 # Если данные вводятся в неверном формате, сообщить об этом и запросить ввод заново.
+
+while True:
+    try:
+        el = input(f"Введите данные в формате nxm: ")
+        tokens = el.split("x")
+        n = int(tokens[0])
+        m = int(tokens[1])
+        if n < 0 or m < 0:
+            print("Числа не могут быть меньше 0")
+            continue
+        print(n // m)
+        break
+    except IndexError:
+        print("Введите два числа через разделитель 'x'")
+    except ValueError:
+        print("Введено не число")
+    except ZeroDivisionError:
+        print("Второе число не может равняться 0")
